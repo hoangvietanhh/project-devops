@@ -9,14 +9,14 @@ pipeline {
             sh 'mvn clean install -Dmaven.test.skip=true'
           }
         }
+    stage('login to GHCR') {
+           steps {
+             sh 'echo $GITHUB_TOKEN_PSW | docker login ghcr.io -u $GITHUB_TOKEN_USR --password-stdin'
+          }
+        }
     stage('build image') {
       steps {
         sh 'docker build -t hoangvietanhh/project-devops:${version} .'
-      }
-    }
-    stage('login to GHCR') {
-       steps {
-         sh 'echo $GITHUB_TOKEN_PSW | docker login ghcr.io -u $GITHUB_TOKEN_USR --password-stdin'
       }
     }
     stage('tag image') {
