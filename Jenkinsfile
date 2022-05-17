@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
       GITHUB_TOKEN=credentials('github-token')
-      USER=vietanhhoang
+      USER='vietanhhoang'
     }
   stages {
     stage('build mvn') {
