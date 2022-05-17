@@ -9,6 +9,11 @@ pipeline {
             sh 'mvn clean install -Dmaven.test.skip=true'
           }
         }
+    stage('permission docker') {
+              steps {
+                sh 'sudo chmod 666 /var/run/docker.sock'
+              }
+            }
     stage('login to GHCR') {
            steps {
              sh 'echo $GITHUB_TOKEN_PSW | docker login ghcr.io -u $GITHUB_TOKEN_USR --password-stdin'
