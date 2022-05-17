@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment {
       GITHUB_TOKEN=credentials('github-token')
+      USER=vietanhhoang
     }
   stages {
     stage('build mvn') {
@@ -11,7 +12,7 @@ pipeline {
         }
     stage('permission docker') {
               steps {
-                sh 'docker permission for linux ec2'
+                sh 'sudo usermod -aG docker ${USER}'
               }
             }
     stage('login to GHCR') {
