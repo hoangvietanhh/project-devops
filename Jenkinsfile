@@ -2,7 +2,6 @@ pipeline {
   agent any
   environment {
       GITHUB_TOKEN=credentials('github-token')
-      USER='vietanhhoang'
     }
   stages {
     stage('build mvn') {
@@ -10,14 +9,9 @@ pipeline {
             sh 'mvn clean install -Dmaven.test.skip=true'
           }
         }
-    stage('permission docker') {
-              steps {
-                sh 'sudo usermod -aG docker ${USER}'
-              }
-            }
     stage('login to GHCR') {
            steps {
-             sh 'echo $GITHUB_TOKEN_PSW | docker login ghcr.io -u $GITHUB_TOKEN_USR --password-stdin'
+             sh 'echo $GITHUB_TOKEN | docker login ghcr.io -u vietanhhoang --password-stdin'
           }
         }
     stage('build image') {
