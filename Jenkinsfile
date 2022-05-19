@@ -11,7 +11,7 @@ pipeline {
         }
     stage('login to GHCR') {
            steps {
-             sh 'echo $GITHUB_TOKEN | docker login ghcr.io -u vietanhhoang --password-stdin'
+             sh 'echo $GITHUB_TOKEN | docker login -u vietanhhoang --password-stdin ghcr.io'
           }
         }
     stage('build image') {
