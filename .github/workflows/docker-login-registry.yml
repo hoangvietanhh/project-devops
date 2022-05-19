@@ -14,4 +14,4 @@ jobs:
         with:
           registry: ghcr.io
           username: hoangvietanhh
-          password: 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
+          password: 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
