@@ -21,7 +21,7 @@ pipeline {
         }
     stage('push image') {
           steps {
-            sh 'docker push ghcr.io/hoangvietanhh/project-devop:${version}'
+            sh 'docker push ghcr.io/hoangvietanhh/project-devops:${version}'
           }
         }
     stage('label image') {
@@ -31,12 +31,12 @@ pipeline {
          }
     stage('run image') {
           steps {
-            sh 'docker run -dp 8000:8800 ghcr.io/hoangvietanhh/project-devop:${version}'
+            sh 'docker run -dp 8000:8800 ghcr.io/hoangvietanhh/project-devops:${version}'
              }
           }
     stage('log container') {
               steps {
-                sh 'docker logs -f ghcr.io/hoangvietanhh/project-devop:${version}'
+                sh 'docker logs -f ghcr.io/hoangvietanhh/project-devops:${version}'
                  }
               }
   }
