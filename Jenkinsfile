@@ -24,11 +24,6 @@ pipeline {
             sh 'docker push ghcr.io/hoangvietanhh/project-devops:${version}'
           }
         }
-    stage('label image') {
-          steps {
-            sh 'LABEL org.opencontainers.image.source https://github.com/hoangvietanhh/project-devops:${version}'
-          }
-         }
     stage('run image') {
           steps {
             sh 'docker run -dp 8000:8800 ghcr.io/hoangvietanhh/project-devops:${version}'
