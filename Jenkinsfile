@@ -26,7 +26,7 @@ pipeline {
         }
     stage('run image') {
           steps {
-            sh 'docker run -dp 8000:8800 ghcr.io/hoangvietanhh/project-devops:${version}'
+            sh 'docker run -dp 8000:8000 ghcr.io/hoangvietanhh/project-devops:${version}'
              }
           }
 }
