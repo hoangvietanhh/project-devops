@@ -16,7 +16,7 @@ pipeline {
     }
     stage('tag image') {
           steps {
-            sh 'docker tag hoangvietanhh/project-devops ghcr.io/hoangvietanhh/project-devops:${version}'
+            sh 'docker tag hoangvietanhh/project-devops${version} ghcr.io/hoangvietanhh/project-devops:${version}'
           }
         }
     stage('push image') {
