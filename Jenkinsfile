@@ -9,11 +9,6 @@ pipeline {
             sh 'mvn clean install -Dmaven.test.skip=true'
           }
         }
-    stage('login to GHCR') {
-           steps {
-             sh 'echo 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 | docker login ghcr.io -u vietanhhoang --password-stdin'
-          }
-        }
     stage('build image') {
       steps {
         sh 'docker build -t hoangvietanhh/project-devops:${version} .'
