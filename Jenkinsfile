@@ -29,10 +29,4 @@ pipeline {
             sh 'docker run -dp 8000:8800 ghcr.io/hoangvietanhh/project-devops:${version}'
              }
           }
-    stage('log container') {
-              steps {
-                sh 'docker logs -f ghcr.io/hoangvietanhh/project-devops:${version}'
-                 }
-              }
-  }
 }
